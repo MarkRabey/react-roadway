@@ -1,0 +1,43 @@
+{
+  "name": "react-roadway",
+  "version": "0.1.0",
+  "description": "Minimal Routing for React",
+  "main": "dist/index.js",
+  "scripts": {
+    "prepublish": "babel src -d dist",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Opentrace/react-roadway.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "routing",
+    "history"
+  ],
+  "author": "Mark Rabey <mark@opentrace.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Opentrace/react-roadway/issues"
+  },
+  "homepage": "https://github.com/Opentrace/react-roadway#readme",
+  "dependencies": {
+    "history": "^4.6.3",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "live-doc": "^1.0.0-9",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1"
+  }
+}
