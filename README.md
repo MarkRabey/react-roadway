@@ -14,4 +14,4 @@ Coming soon.
 Coming soon.
 
 ## License
-[MIT](http://mit-license.org) Copyright (c) 2017 Opentrace <accounts@opentrace.ca>
+MIT Copyright (c) 2017 [Opentrace](http://opentrace.ca)
