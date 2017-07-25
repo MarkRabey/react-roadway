@@ -9,22 +9,21 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live';
-import './main.scss';
+import styles from './main.scss';
+
 import { createRouter, createRoute, Link } from 'react-roadway';
 
-console.log(pkg);
-
 const Demo = () => (
-  <div className="demo">
-    <header className="demo__header">
+  <div className={ styles.demo }>
+    <header className={ styles.demo__header }>
       <h1>React Roadway</h1>
       <p>
         { pkg.description }
       </p>
     </header>
 
-    <section className="demo__section">
-      <header className="demo__section-header">
+    <section className={ styles['demo__section'] }>
+      <header className={ styles['demo__section-header'] }>
         <h2>Installation</h2>
       </header>
       <code className="prism-code">
@@ -32,8 +31,8 @@ const Demo = () => (
       </code>
     </section>
 
-    <section className="demo__section">
-      <header className="demo__section-header">
+    <section className={ styles['demo__section'] }>
+      <header className={ styles['demo__section-header'] }>
         <h2>
           Example
         </h2>
@@ -65,22 +64,22 @@ render(createRouter(App));
 `}>
         <Flex cellWidth="1/2" gutter="0px">
           <FlexItem>
-            <LiveEditor />
+            <LiveEditor className={ styles['prism-code'] } />
           </FlexItem>
 
-          <FlexItem>
+          <FlexItem className={ styles['react-live-preview'] }>
             <LivePreview />
           </FlexItem>
 
           <FlexItem width="1">
-            <LiveError />
+            <LiveError className={ styles['react-live-error'] } />
           </FlexItem>
         </Flex>
       </LiveProvider>
     </section>
 
-    <section className="demo__section">
-      <header className="demo__section-header">
+    <section className={ styles['demo__section'] }>
+      <header className={ styles['demo__section-header'] }>
         <h2>Higher-order Components</h2>
       </header>
       <div>
@@ -88,8 +87,8 @@ render(createRouter(App));
       </div>
     </section>
 
-    <section className="demo__section">
-      <header className="demo__section-header">
+    <section className={ styles['demo__section'] }>
+      <header className={ styles['demo__section-header'] }>
         <h2>Options</h2>
       </header>
       <div>
