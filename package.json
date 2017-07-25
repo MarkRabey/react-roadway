@@ -41,5 +41,11 @@
     "live-doc": "^1.0.0-9",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
