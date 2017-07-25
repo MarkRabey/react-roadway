@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+$bg-color: #333;
+$bl-color: #22BAD9;
+
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  padding: 25px 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1;
+}
+
+.demo {
+  a {
+    color: inherit;
+    &:hover {
+      background-color: $bl-color;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .demo__header {
+    margin-top: 5%;
+    margin-bottom: 10%;
+    text-align: center;
+    font-size: 3em;
+    cursor: pointer;
+    color: $bl-color;
+
+    h1, p {
+      margin: 0;
+    }
+  }
+  
+  .demo__section {
+    margin-bottom: 48px;
+  }
+
+  .demo__section-header {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 24px;
+    padding-bottom: 3px;
+    h2 {
+      font-size: 1.5em;
+      font-weight: normal;
+      line-height: 1;
+    }
+  }
+
+  .prism-code, .react-live-preview, .react-live-error {
+    width: 100%;
+  }
+
+  .react-live-preview {
+    border: 1px solid #333;
+    padding: 12px;
+  }
+
+  .react-live-error {
+    background-color: red;
+  }
+}

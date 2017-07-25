@@ -4,7 +4,7 @@ import { createHistory } from './utils';
 
 const createRouter = (WrappedComponent) => {
   class Router extends React.Component {
-    constructor({ routes, pathname }) {
+    constructor() {
       super();
       this.state = {
         history: {},
@@ -15,23 +15,23 @@ const createRouter = (WrappedComponent) => {
       this.unlisten = () => {};
     }
 
-    getChildContext () {
+    getChildContext() {
       return this.state;
     }
 
     componentDidMount() {
+      this.createHistory();
+    }
+
+    componentWillUnmount() {
+      this.unlisten();
+    }
+
+    createHistory() {
       const history = createHistory(this.props.options);
       const { location } = history;
       this.setState({ history, location });
       this.unlisten = history.listen(this.updateHistory);
-    }
-
-    componentWillUnmount () {
-      this.unlisten()
-    }
-
-    createHistory() {
-      let history = {};
     }
 
     updateHistory(location) {
@@ -46,13 +46,17 @@ const createRouter = (WrappedComponent) => {
   Router.childContextTypes = {
     history: PropTypes.object,
     location: PropTypes.object,
-  }
+  };
 
   Router.propTypes = {
-    options: PropTypes.object,
+    options: PropTypes.func,
+  };
+
+  Router.defaultProps = {
+    options: {},
   };
 
   return Router;
-}
+};
 
 export default createRouter;

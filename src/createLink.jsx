@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
 const createLink = (WrappedComponent) => {
   class Link extends React.Component {
     constructor() {
@@ -18,7 +22,7 @@ const createLink = (WrappedComponent) => {
         if (scroll !== false) {
           window.scrollTo(0, 0);
         }
-      }
+      };
     }
 
     render() {
@@ -30,9 +34,19 @@ const createLink = (WrappedComponent) => {
           href={ href }
           onClick={ this.onClick(href) }
         />
-      )
+      );
     }
   }
+
+  Link.propTypes = {
+    scroll: PropTypes.bool,
+    href: PropTypes.string,
+  };
+
+  Link.defaultProps = {
+    scroll: true,
+    href: null,
+  };
 
   Link.contextTypes = {
     history: PropTypes.object,
@@ -42,10 +56,6 @@ const createLink = (WrappedComponent) => {
   Link.displayName = `createLink(${ getDisplayName(WrappedComponent) })`;
 
   return Link;
-}
-
-function getDisplayName(WrappedComponent) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-}
+};
 
 export default createLink;

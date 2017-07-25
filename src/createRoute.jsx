@@ -3,32 +3,34 @@ import PropTypes from 'prop-types';
 import { matchRoute } from './utils';
 
 const createRoute = (WrappedComponent) => {
-  class RouteComponent extends React.Component {
-    render () {
-      const { match, ...props } = this.props;
-      const { history, location } = this.context;
+  const RouteComponent = ({ match, ...props }, { history, location }) => {
+    const matched = matchRoute(match, location);
+    if (match && !matched) return null;
+    return (
+      <WrappedComponent
+        { ...props }
+        history={ history }
+        location={ location }
+        params={ matched.params }
+        search={ matched.search }
+      />
+    );
+  };
 
-      const matched = matchRoute(match, location);
-      if (match && !matched) return null;
+  RouteComponent.propTypes = {
+    match: PropTypes.string,
+  };
 
-      return (
-        <WrappedComponent
-          { ...props }
-          history={ history }
-          location={ location }
-          params={ matched.params }
-          search={ matched.search }
-        />
-      );
-    }
-  }
+  RouteComponent.defaultProps = {
+    match: '/',
+  };
 
   RouteComponent.contextTypes = {
     history: PropTypes.object,
-    location: PropTypes.object
+    location: PropTypes.object,
   };
 
   return RouteComponent;
-}
+};
 
 export default createRoute;

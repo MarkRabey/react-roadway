@@ -14,14 +14,14 @@ const matchRoute = (pattern = '', location = {}) => {
   const tokens = reg.exec(pathname);
 
   keys.forEach((key, i) => {
-    params[key.name] = tokens[i + 1]
+    params[key.name] = tokens[i + 1];
   });
 
   return {
     params,
-    search
-  }
-}
+    search,
+  };
+};
 
 const createHistory = (options) => {
   let history = {};
@@ -33,7 +33,7 @@ const createHistory = (options) => {
   }
 
   return history;
-}
+};
 
-export { matchRoute as matchRoute, createHistory as createHistory };
+export { matchRoute, createHistory };
 
