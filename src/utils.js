@@ -1,4 +1,5 @@
 import pathToRegexp from 'path-to-regexp';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 const matchRoute = (pattern = '', location = {}) => {
   const { pathname = '', search } = location;
@@ -22,5 +23,17 @@ const matchRoute = (pattern = '', location = {}) => {
   }
 }
 
-export { matchRoute as matchRoute };
+const createHistory = (options) => {
+  let history = {};
+  history.listen = () => {};
+  history.push = () => {};
+
+  if (typeof document !== 'undefined') {
+    history = createBrowserHistory(options);
+  }
+
+  return history;
+}
+
+export { matchRoute as matchRoute, createHistory as createHistory };
 

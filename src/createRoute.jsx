@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { matchRoute } from './utils';
 
-const Route = (Component) => {
+const createRoute = (WrappedComponent) => {
   class RouteComponent extends React.Component {
     render () {
       const { match, ...props } = this.props;
@@ -12,7 +12,7 @@ const Route = (Component) => {
       if (match && !matched) return null;
 
       return (
-        <Component
+        <WrappedComponent
           { ...props }
           history={ history }
           location={ location }
@@ -31,4 +31,4 @@ const Route = (Component) => {
   return RouteComponent;
 }
 
-export default Route;
+export default createRoute;
