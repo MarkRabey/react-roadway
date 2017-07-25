@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/Opentrace/react-roadway/issues"
   },
-  "homepage": "https://github.com/Opentrace/react-roadway#readme",
+  "homepage": "https://opentrace.github.io/react-roadway/",
   "dependencies": {
     "history": "^4.6.3",
     "path-to-regexp": "^1.7.0",
