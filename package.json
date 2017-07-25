@@ -6,6 +6,7 @@
   "scripts": {
     "build:dist": "babel src -d dist",
     "build:docs": "webpack --devtool inline-source-map",
+    "deploy:docs": "git add docs/dist && git commit -m \"rebuild docs\" && git subtree push --prefix docs/dist origin gh-pages",
     "build": "npm run build:dist && npm run build:docs",
     "start": "webpack-dev-server --devtool inline-source-map --progress --colors --inline --hot --content-base docs",
     "test": "ava"

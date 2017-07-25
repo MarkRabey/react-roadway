@@ -1,0 +1,18 @@
+sudo: false
+language: node_js
+node_js:
+  - '6.10'
+  - '7'
+  - '8'
+branches:
+  only:
+    - master
+before_script:
+  - git config --global user.email "mark@markrabey.com"
+  - git config --global user.name "Mark Rabey"
+  - git remote rm origin
+  - git remote add origin https://MarkRabey:${GH_TOKEN}@github.com/Opentrace/react-roadway.git
+script: npm run build:docs && npm run deploy:docs
+env:
+  global:
+    secure: WrB2DXeo/t3A2mbR14EIx87+xqbcrgnaSA2RG2NWYXEcP6OUs4Cxfw77x93US2a9iPCOWrk3hB0FF8bkbGo/h/Wz4baA2KH0ALaGFiJatNEP2sfGaTtbjs7YeDeqUXv4+URMtqoeucrapK1HYRXoRjiCwnhEmWslbU9lGsEJI/zwR/16SIhNWslzxxa7flDZsLG/9G5/ao4ZibPeJkzmzZzAcL/YHuPiy6Wcj7S3ZKtYGfX/eWzOp+vkOtbVWshdbqTv43SwpMVn95yA+cPGWCRiAxdRHLvDShFiM4iBgutTGK60E7iVAbZPshAQPIu/ud2Y7zmHLgaee8Cg3W0pWl4JYmHpC+Tx51REKDfmVOJb76Jdz3ejYWxGe0T2eFBRnmP/In5Y4ZnbvoGmiUrU7OPaxVaWjVbef0mU9FSUKnzywPvAtvqTrNCb1R9FXJ5JX0qDvGY9uBDQCzQPThwxGCnpXitb682sNeFzk5ab2whwRom4/G4/mJ7q/v5AhmyvZ2FqvgMBOOIJ6eT5+GlYHUo3p+PZQ81Wc7IDg27PTdky01llFQfVKfcYTy30Y8qAYpMnQwgBOoFpy01otcm5/7JYO51TbukWPysHUyUlVgnok0dNzgiN6dgW040Lv/TtYRb1ia6+21LvOemHLf3L1zwGb+Ga1bxbZ0whCk9zcw8=
