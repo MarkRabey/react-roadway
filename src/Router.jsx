@@ -7,8 +7,13 @@ const Router = ({ history, location, ...props }) => (
 );
 
 Router.propTypes = {
-  history: PropTypes.func.isRequired,
-  location: PropTypes.func.isRequired,
+  history: PropTypes.object,
+  location: PropTypes.object,
+};
+
+Router.defaultProps = {
+  history: {},
+  location: {},
 };
 
 export default createRouter(Router);

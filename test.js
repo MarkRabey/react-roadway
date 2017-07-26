@@ -18,8 +18,10 @@ test('exports higher-order components', t => {
 
 test('exports components', t => {
   const router = create(<Router />).toJSON();
+  const route = create(<Router />).toJSON();
   const link = create(<Link />).toJSON();
   t.snapshot(router);
+  t.snapshot(route);
   t.snapshot(link);
 })
 
