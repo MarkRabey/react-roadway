@@ -61,7 +61,9 @@ const App = () => (
   </div>
 );
 
-render(createRouter(App));
+const Router = createRouter(App);
+
+render(<Router options={{ basename: '/react-roadway' }} />);
 `}>
         <Flex cellWidth="1/2" gutter="0px">
           <FlexItem>

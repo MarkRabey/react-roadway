@@ -49,7 +49,7 @@ const createRouter = (WrappedComponent) => {
   };
 
   Router.propTypes = {
-    options: PropTypes.func,
+    options: PropTypes.object,
   };
 
   Router.defaultProps = {
