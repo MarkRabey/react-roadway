@@ -11,7 +11,7 @@ import {
 } from 'react-live';
 import styles from './main.scss';
 
-import { createRouter, createRoute, Link } from 'react-roadway';
+import { createRouter, createRoute, Route, Link } from 'react-roadway';
 
 const Demo = () => (
   <div className={ styles.demo }>
@@ -37,7 +37,7 @@ const Demo = () => (
           Example
         </h2>
       </header>
-      <LiveProvider noInline scope={{ createRouter, createRoute, Link }} code={
+      <LiveProvider noInline scope={{ createRouter, createRoute, Route, Link }} code={
 `const Home = () => (
   <div>Home</div>
 );
@@ -47,7 +47,6 @@ const About = () => (
 );
 
 const HomeRoute = createRoute(Home);
-const AboutRoute = createRoute(About);
 
 const App = () => (
   <div>
@@ -56,7 +55,9 @@ const App = () => (
       <li><Link href="/about">About</Link></li>
     </ul>
     <HomeRoute match="/" />
-    <AboutRoute match="/about" />
+    <Route match="/about">
+      <About />
+    </Route>
   </div>
 );
 
