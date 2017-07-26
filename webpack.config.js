@@ -8,7 +8,8 @@ module.exports = {
   entry: './docs/index.jsx',
   output: {
     path: path.join(__dirname, './docs/dist'),
-    filename: 'index.js'
+    filename: 'index.js',
+    publicPath: '/dist/',
   },
   module: {
     loaders: [
@@ -21,7 +22,6 @@ module.exports = {
             options: {
               sourceMap: true,
               modules: true,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
             }
           }, {
             loader: 'sass-loader',
@@ -48,9 +48,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
-    new CopyWebpackPlugin([
-      {from: 'docs/index.html'},
-    ]),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
