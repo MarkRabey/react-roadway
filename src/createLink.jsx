@@ -26,7 +26,7 @@ const createLink = (WrappedComponent) => {
     }
 
     render() {
-      const { href, ...props } = this.props;
+      const { href, scroll, ...props } = this.props;
 
       return (
         <WrappedComponent
