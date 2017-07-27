@@ -90,7 +90,7 @@ var createRouter = function createRouter(WrappedComponent) {
   };
 
   Router.propTypes = {
-    options: _propTypes2.default.func
+    options: _propTypes2.default.object
   };
 
   Router.defaultProps = {

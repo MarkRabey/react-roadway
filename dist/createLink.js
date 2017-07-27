@@ -63,7 +63,8 @@ var createLink = function createLink(WrappedComponent) {
       value: function render() {
         var _props = this.props,
             href = _props.href,
-            props = _objectWithoutProperties(_props, ['href']);
+            scroll = _props.scroll,
+            props = _objectWithoutProperties(_props, ['href', 'scroll']);
 
         return _react2.default.createElement(WrappedComponent, _extends({}, props, {
           href: href,

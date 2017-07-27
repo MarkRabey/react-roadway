@@ -13,15 +13,6 @@ Object.defineProperty(exports, 'createRouter', {
   }
 });
 
-var _createLink = require('./createLink');
-
-Object.defineProperty(exports, 'createLink', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_createLink).default;
-  }
-});
-
 var _createRoute = require('./createRoute');
 
 Object.defineProperty(exports, 'createRoute', {
@@ -31,12 +22,30 @@ Object.defineProperty(exports, 'createRoute', {
   }
 });
 
+var _createLink = require('./createLink');
+
+Object.defineProperty(exports, 'createLink', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_createLink).default;
+  }
+});
+
 var _Router = require('./Router');
 
 Object.defineProperty(exports, 'Router', {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_Router).default;
+  }
+});
+
+var _Route = require('./Route');
+
+Object.defineProperty(exports, 'Route', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Route).default;
   }
 });
 
