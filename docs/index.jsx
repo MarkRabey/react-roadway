@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import pkg from '../package.json';
-import { Flex, FlexItem } from 're-flex';
+import { Flex, Box } from 're-flex';
 import {
   LiveProvider,
   LiveEditor,
@@ -51,8 +51,8 @@ const HomeRoute = createRoute(Home);
 const App = () => (
   <div>
     <ul>
-      <li><Link href="/">Home</Link></li>
-      <li><Link href="/about">About</Link></li>
+      <li><Link href="/" noscroll>Home</Link></li>
+      <li><Link href="/about" noscroll>About</Link></li>
     </ul>
     <HomeRoute match="/" />
     <Route match="/about">
@@ -63,32 +63,34 @@ const App = () => (
 
 const Router = createRouter(App);
 
-render(<Router options={{ basename: '/react-roadway' }} />);
+render(<Router options={{ basename: '/' }} />);
 `}>
-        <Flex cellWidth="1/2" gutter="0px">
-          <FlexItem>
+        <Flex gutter={ 0 }>
+          <Box width={ [1, [768, 1/2]] }>
             <LiveEditor className={ styles['prism-code'] } />
-          </FlexItem>
+          </Box>
 
-          <FlexItem className={ styles['react-live-preview'] }>
+          <Box width={ [1, [768, 1/2]] } className={ styles['react-live-preview'] }>
             <LivePreview />
-          </FlexItem>
+          </Box>
 
-          <FlexItem width="1">
+          <Box width="1">
             <LiveError className={ styles['react-live-error'] } />
-          </FlexItem>
+          </Box>
         </Flex>
       </LiveProvider>
     </section>
 
-    <section className={ styles['demo__section'] }>
-      <header className={ styles['demo__section-header'] }>
-        <h2>Higher-order Components</h2>
-      </header>
-      <div>
-        Coming soon.
-      </div>
-    </section>
+    { /*
+      <section className={ styles['demo__section'] }>
+        <header className={ styles['demo__section-header'] }>
+          <h2>Higher-order Components</h2>
+        </header>
+        <div>
+          Coming soon.
+        </div>
+      </section>
+    */ }
 
     <section className={ styles['demo__section'] }>
       <header className={ styles['demo__section-header'] }>

@@ -14,14 +14,14 @@ const Route = ({
 
 Route.propTypes = {
   params: PropTypes.object,
-  search: PropTypes.object,
+  search: PropTypes.string,
   history: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
 };
 
 Route.defaultProps = {
   params: {},
-  search: {},
+  search: null,
 };
 
 
