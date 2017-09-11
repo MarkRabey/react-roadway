@@ -51,8 +51,8 @@ const HomeRoute = createRoute(Home);
 const App = () => (
   <div>
     <ul>
-      <li><Link href="/">Home</Link></li>
-      <li><Link href="/about">About</Link></li>
+      <li><Link href="/" noscroll>Home</Link></li>
+      <li><Link href="/about" noscroll>About</Link></li>
     </ul>
     <HomeRoute match="/" />
     <Route match="/about">
