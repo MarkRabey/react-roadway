@@ -5,7 +5,7 @@ const config = require('./webpack.config');
 config.entry = './src';
 config.output = {
   path: path.join(__dirname, './dist'),
-  filename: 'index.js',
+  filename: 'bundle.js',
   library: 'React Roadway',
   libraryTarget: 'commonjs2',
 };

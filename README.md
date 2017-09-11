@@ -10,19 +10,19 @@ npm install react-roadway --save
 
 ```..jsx
 
-const Home = Route((props) => (
+const Home = createRoute((props) => (
   <div>
     <h1>Home</h1>
   </div>
 ));
 
-const About = Route((props) => (
+const About = createRoute((props) => (
   <div>
     <h1>About</h1>
   </div>
 ));
 
-const App = Router(() => (
+const App = createRouter(() => (
   <div>
     <nav>
       <ul>
