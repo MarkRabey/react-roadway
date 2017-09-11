@@ -2,15 +2,44 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const pkg = require('./package.json');
+
+const env = process.env.NODE_ENV || 'development';
+
+const plugins = [
+  new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(env),
+  }),
+];
+
+if (env === 'production') {
+  Array.prototype.push.apply(plugins, [
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ]);
+} else {
+  Array.prototype.push.apply(plugins, [
+    new webpack.HotModuleReplacementPlugin(),
+    new DashboardPlugin(),
+  ]);
+}
 
 module.exports = {
-  entry: './docs/index.jsx',
+  entry: [
+    'webpack-dev-server/client?http://localhost:8081/',
+    'webpack/hot/dev-server',
+    './docs/index.jsx'
+  ],
   output: {
     path: path.join(__dirname, './docs/dist'),
-    filename: 'index.js',
+    filename: 'bundle.js',
     publicPath: '/dist/',
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       {
@@ -46,18 +75,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ExtractTextPlugin({ filename: 'main.css', allChunks: true }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-  ],
+  plugins: plugins,
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
     modules: ['src', 'node_modules'],
     alias: {
-      'react-roadway': path.resolve(__dirname, './src'),
+      [pkg.name]: path.resolve(__dirname, './src'),
     },
   },
 };
