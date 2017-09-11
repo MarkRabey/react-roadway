@@ -2,7 +2,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import pkg from '../package.json';
-import { Flex, FlexItem } from 're-flex';
+import { Flex, Box } from 're-flex';
 import {
   LiveProvider,
   LiveEditor,
@@ -24,7 +24,7 @@ const Demo = () => (
 
     <section className={ styles['demo__section'] }>
       <header className={ styles['demo__section-header'] }>
-        <h2>Installation</h2>
+        <h2>Installationn</h2>
       </header>
       <code className="prism-code">
         npm install react-roadway
@@ -65,18 +65,18 @@ const Router = createRouter(App);
 
 render(<Router options={{ basename: '/react-roadway' }} />);
 `}>
-        <Flex cellWidth="1/2" gutter="0px">
-          <FlexItem>
+        <Flex gutter={ 0 }>
+          <Box width={ 1/2 }>
             <LiveEditor className={ styles['prism-code'] } />
-          </FlexItem>
+          </Box>
 
-          <FlexItem className={ styles['react-live-preview'] }>
+          <Box width={ 1/2 } className={ styles['react-live-preview'] }>
             <LivePreview />
-          </FlexItem>
+          </Box>
 
-          <FlexItem width="1">
+          <Box width="1">
             <LiveError className={ styles['react-live-error'] } />
-          </FlexItem>
+          </Box>
         </Flex>
       </LiveProvider>
     </section>
