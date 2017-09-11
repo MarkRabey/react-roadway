@@ -14,6 +14,8 @@ const plugins = [
   }),
 ];
 
+const entry = ['./docs/index.jsx'];
+
 if (env === 'production') {
   Array.prototype.push.apply(plugins, [
     new webpack.optimize.UglifyJsPlugin({
@@ -21,19 +23,19 @@ if (env === 'production') {
     }),
     new webpack.NoEmitOnErrorsPlugin(),
   ]);
+
+
 } else {
   Array.prototype.push.apply(plugins, [
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(),
   ]);
+
+  entry.unshift('webpack-dev-server/client?http://localhost:8081/', 'webpack/hot/dev-server');
 }
 
 module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:8081/',
-    'webpack/hot/dev-server',
-    './docs/index.jsx'
-  ],
+  entry: entry,
   output: {
     path: path.join(__dirname, './docs/dist'),
     filename: 'bundle.js',
