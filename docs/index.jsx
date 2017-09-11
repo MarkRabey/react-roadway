@@ -81,14 +81,16 @@ render(<Router options={{ basename: '/' }} />);
       </LiveProvider>
     </section>
 
-    <section className={ styles['demo__section'] }>
-      <header className={ styles['demo__section-header'] }>
-        <h2>Higher-order Components</h2>
-      </header>
-      <div>
-        Coming soon.
-      </div>
-    </section>
+    { /*
+      <section className={ styles['demo__section'] }>
+        <header className={ styles['demo__section-header'] }>
+          <h2>Higher-order Components</h2>
+        </header>
+        <div>
+          Coming soon.
+        </div>
+      </section>
+    */ }
 
     <section className={ styles['demo__section'] }>
       <header className={ styles['demo__section-header'] }>
