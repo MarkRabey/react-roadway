@@ -1,6 +1,6 @@
 {
   "name": "react-roadway",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Minimal Routing for React",
   "main": "dist/index.js",
   "scripts": {
