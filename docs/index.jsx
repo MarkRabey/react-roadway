@@ -24,7 +24,7 @@ const Demo = () => (
 
     <section className={ styles['demo__section'] }>
       <header className={ styles['demo__section-header'] }>
-        <h2>Installationn</h2>
+        <h2>Installation</h2>
       </header>
       <code className="prism-code">
         npm install react-roadway
@@ -63,14 +63,14 @@ const App = () => (
 
 const Router = createRouter(App);
 
-render(<Router options={{ basename: '/react-roadway' }} />);
+render(<Router options={{ basename: '/' }} />);
 `}>
         <Flex gutter={ 0 }>
-          <Box width={ 1/2 }>
+          <Box width={ [1, [768, 1/2]] }>
             <LiveEditor className={ styles['prism-code'] } />
           </Box>
 
-          <Box width={ 1/2 } className={ styles['react-live-preview'] }>
+          <Box width={ [1, [768, 1/2]] } className={ styles['react-live-preview'] }>
             <LivePreview />
           </Box>
 
